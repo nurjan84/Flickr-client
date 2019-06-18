@@ -46,7 +46,6 @@ class MainFragment : BaseFragment(), View.OnClickListener {
         searchSuggestionsListener()
         searchImeOptionListener()
         listStateListener()
-        setupAdapter()
         photosListener()
         searchButton.setOnClickListener(this)
     }
@@ -98,6 +97,7 @@ class MainFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun photosListener(){
+        setupAdapter()
         mainFragmentViewModel.searchPhotos()
         mainFragmentViewModel.searchResults().removeObservers(viewLifecycleOwner)
         mainFragmentViewModel.searchResults().observe(viewLifecycleOwner, Observer { list ->
